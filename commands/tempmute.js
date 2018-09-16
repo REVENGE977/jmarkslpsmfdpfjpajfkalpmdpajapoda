@@ -49,6 +49,7 @@ let incidentchannel = message.guild.channels.find(`name`, "incidents");
 if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
     message.delete().catch(O_o=>{});
 incidentchannel.send(mutedEmbed);
+ message.channel.send(`**Done, ${tomute} has been muted !**`)
 
   setTimeout(function(){
       if(tomute.roles.has(muterole.id)){
