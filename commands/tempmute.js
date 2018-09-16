@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
           if(!message.member.roles.has(gRole2.id)) return message.channel.send("You can't do this command.");
   if(!tomute) return message.channel.send("+mute [User] [Time] [Reason]")
 
-  if(tomute.roles.has(gRole1.id)) return message.channel.send("Can't mute that player!");
+  if(tomute.roles.has(gRole2.id)) return message.channel.send("Can't mute that player!");
   let muterole = message.guild.roles.find(`name`, "Muted");
   //start of create role
   if(!muterole){
