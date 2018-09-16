@@ -4,13 +4,10 @@ const ms = require("ms");
 module.exports.run = async (bot, message, args) => {
 
   //+mute @user 1s/m/h/d
-  let role2 = "Chat-Muter";
-  let gRole2 = message.guild.roles.find(`name`, role2);
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-          if(!message.member.roles.has(gRole2.id)) return message.channel.send("You can't do this command.");
+  if(!message.member.hasPermission("MUTE_MEMBERS")) return message.reply("You Cant Use This Command");
   if(!tomute) return message.channel.send("+mute [User] [Time] [Reason]")
 
-  if(tomute.roles.has(gRole2.id)) return message.channel.send("Can't mute that player!");
   let muterole = message.guild.roles.find(`name`, "Muted");
   //start of create role
   if(!muterole){
