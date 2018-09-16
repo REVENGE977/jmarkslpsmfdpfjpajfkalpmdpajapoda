@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
   if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("Sorry pal, you can't do that.");
   if(args[0] == "help"){
-    message.reply("Usage: !removerole <user> <role>");
+    message.reply("Usage: +removerole <user> <role>");
     return;
   }
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
