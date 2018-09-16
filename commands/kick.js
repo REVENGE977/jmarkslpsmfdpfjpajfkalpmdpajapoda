@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
     if(args[0] == "help"){
-      message.reply("Usage: !kick <user> <reason>");
+      message.reply("Usage: +kick <user> <reason>");
       return;
     }
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Reason", kReason);
 
     let kickChannel = message.guild.channels.find(`name`, "incidents");
-    if(!kickChannel) return message.channel.send("Can't find incidents channel.");
+    if(+kickChannel) return message.channel.send("Can't find incidents channel.");
 
     message.guild.member(kUser).kick(kReason);
     kickChannel.send(kickEmbed);
