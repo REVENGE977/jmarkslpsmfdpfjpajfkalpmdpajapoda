@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
   //+mute @user 1s/m/h/d
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!message.member.hasPermission("MUTE_MEMBERS")) return message.reply("You Cant Use This Command");
+  if(!message.member.hasPermission("MUTE_MEMBERS")) return;
   if(!tomute) return message.channel.send("+mute [User] [Time] [Reason]")
 
   let muterole = message.guild.roles.find(`name`, "Muted");
