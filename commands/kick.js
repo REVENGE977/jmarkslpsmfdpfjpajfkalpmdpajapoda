@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return;
     if(args[0] == "help"){
       message.reply("Usage: +kick <user> <reason>");
       return;
